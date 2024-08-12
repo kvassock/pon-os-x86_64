@@ -42,12 +42,6 @@ sudo apt-get install grub-pc-bin
 sudo apt-get install grub-common
 ```
 
-### Сборка
-
-```
-make build-x86_64
-```
-
 # Эмуляция
 
 Чтобы эмулировать
