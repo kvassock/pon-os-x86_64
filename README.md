@@ -1,18 +1,6 @@
 # PonOS - операционная система
 
-## Сборка через докер
-
-```
-sudo docker run --rm -it -v $(pwd):/root/env ponos-buildenv
-```
-
-### Сборка
-
-```
-make build-x86_64
-```
-
-## Сборка вручную
+## Сборка
 
 Для сборки понадобятся устаноить библеотеки:
 
@@ -40,6 +28,12 @@ sudo apt-get install grub-pc-bin
 
 ```
 sudo apt-get install grub-common
+```
+
+### Сборка
+
+```
+make build-x86_64
 ```
 
 # Эмуляция
