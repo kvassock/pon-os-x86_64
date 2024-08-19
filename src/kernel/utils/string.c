@@ -254,3 +254,56 @@ int split(char *str, char delimiter, char ***result) {
   return count; // Возвращаем количество подстрок
 }
 
+// Развернуть строчку
+void reverse(char str[], int length) {
+  int start = 0;
+  int end = length - 1;
+
+  while (start < end) {
+    char temp = str[start];
+    str[start] = str[end];
+    str[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+// Число с плавающей точкой в строку
+void double_to_str(double value, char* buffer) {
+  int int_part = (int)value;
+  double fractional_part = value - int_part;
+
+  int i = 0;
+  if (int_part == 0) {
+    buffer[i++] = '0';
+  } else {
+    if (int_part < 0) {
+      buffer[i++] = '-';
+      int_part = -int_part;
+    }
+
+    char int_str[20];
+    int int_i = 0;
+    
+    while (int_part > 0) {
+      int_str[int_i++] = (int_part % 10) + '0';
+      int_part /= 10;
+    }
+    
+    reverse(int_str, int_i);
+    for (int j = 0; j < int_i; j++) {
+      buffer[i++] = int_str[j]; 
+    }
+  }
+
+  buffer[i++] = '.';
+
+  for (int j = 0; j < 6; j++) { 
+      fractional_part *= 10;
+      int fractional_digit = (int)fractional_part;
+      buffer[i++] = fractional_digit + '0'; 
+      fractional_part -= fractional_digit;
+  }
+
+  buffer[i] = '\0';
+}

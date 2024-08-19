@@ -41,7 +41,7 @@ int nano(char* file_name) {
   }
 
   if (is_file_exists(file_name) == 0) {
-    print_str("\nNo such file or directory");
+    printf("\nNo such file or directory");
     return 0;
   }
 

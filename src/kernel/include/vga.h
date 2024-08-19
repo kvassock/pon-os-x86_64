@@ -9,6 +9,7 @@
 #include <keyboard.h>
 #include <utils.h>
 #include <shell.h>
+#include <stdarg.h>
 
 struct Char {
   uint8_t character;
@@ -52,5 +53,7 @@ void print_fill(int color_fill);
 void print_rect(int left, int top, int right, int bottom, int color);
 void set_buffer(struct Char* new_buffer);
 void print_symbol(int x, int y, char symbol);
-
 void vga_test();
+
+void printf(const char *format, ...);
+

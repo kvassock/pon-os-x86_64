@@ -46,3 +46,7 @@ char* strdup(char* str);
 int split(char *str, char delimiter, char ***result);
 
 char* strtok(char* str, char* delimiter);
+
+void reverse(char str[], int length);
+
+void double_to_str(double value, char* buffer);

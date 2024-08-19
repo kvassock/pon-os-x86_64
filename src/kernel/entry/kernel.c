@@ -6,19 +6,16 @@
 #include <nano.h> 
 #include <shell.h>
 #include <idt.h>
+#include <math.h>
 
 void kernel_main() {
-  // idt_init(); 
-  init_fs();
-  // vga_test();
-  // return;
-
   print_clear();
+  init_fs();
+  vga_test();
+
   print_set_color(YELLOW, BLACK);
-  print_str("PonOS by kvassock \n");
-  print_str("\n");
-  print_str("Fake File System Init\n");
-  print_str("\n");
+  printf("PonOS by kvassock \n\n");
+  printf("Fake File System Init\n\n");
 
   // print_clear();
   // while(1) {

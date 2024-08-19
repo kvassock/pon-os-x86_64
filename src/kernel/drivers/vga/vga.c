@@ -76,7 +76,7 @@ void print_int(int num) {
   char num_str[12];
   num_to_str(num, num_str);
 
-  print_str(num_str);
+  printf(num_str);
 }
 
 // Напечатать таб
@@ -123,8 +123,6 @@ void print_symbol(int x, int y, char symbol) {
   };
 }
 
-
-
 void vga_test() {
-  
+    
 }

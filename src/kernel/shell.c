@@ -13,7 +13,7 @@ void touch(char* file_name) {
 
   // Валидация
   if (strlen(file_name) > 30 || str_equal(file_name, NULL_KEY)) {
-    return print_str("\nFile name too long");
+    return printf("\nFile name too long");
   }
 
   // Создаие
@@ -25,53 +25,51 @@ void cat(char* file_name) {
   char* file;
   file = get_file(file_name);
 
-  print_str("\n");
-  print_str(file);
+  printf("\n%s", file);
 }
 
 
 // Напечатать строчку терминала
 void print_shell() {
-  print_str("\n");
   print_set_color(LIGHT_BLUE, BLACK);
-  print_str(SHELL_NAME);
+  printf("\n%s", SHELL_NAME);
   print_set_color(WHITE, BLACK);
 }
 
 void print_text_help_main() {
   print_set_color(MAGENTA, BLACK);
-  print_str("\nMain:\n");
+  printf("\nMain:\n");
   print_set_color(WHITE, BLACK);
-  print_str("help - help\n");
-  print_str("help-fs - file system commands\n");
-  print_str("help-soon - feature commands\n");
-  print_str("help-other - other commands\n");
-  print_str("clear - clear the screen\n");
+  printf("help - help\n");
+  printf("help-fs - file system commands\n");
+  printf("help-soon - feature commands\n");
+  printf("help-other - other commands\n");
+  printf("clear - clear the screen\n");
 }
 
 void print_text_help_fs() {
   print_set_color(MAGENTA, BLACK);
-  print_str("\nFile System:\n");
+  printf("\nFile System:\n");
   print_set_color(WHITE, BLACK);
-  print_str("ls - list files\n");
-  print_str("touch - create file\n");
-  print_str("nano - edit file\n");
+  printf("ls - list files\n");
+  printf("touch - create file\n");
+  printf("nano - edit file\n");
 }
 
 void print_text_help_soon() {
   print_set_color(MAGENTA, BLACK);
-  print_str("\nSoon:\n");
+  printf("\nSoon:\n");
   print_set_color(WHITE, BLACK);
-  print_str("rm - remove file\n");
-  print_str("shutdown - shutdown pc\n");
+  printf("rm - remove file\n");
+  printf("shutdown - shutdown pc\n");
 }
 
 void print_text_help_other() {
   print_set_color(MAGENTA, BLACK);
-  print_str("\nOther:\n");
+  printf("\nOther:\n");
   print_set_color(WHITE, BLACK);
-  print_str("ping - pong\n");
-  print_str("ru - russian flag\n");
+  printf("ping - pong\n");
+  printf("ru - russian flag\n");
 }
     
 // Команда для вывода российского флага 
@@ -85,7 +83,7 @@ void command_ru() {
   print_rect(3, 6, x-3, 9, BLUE);
   print_rect(3, 9, x-3, 12, RED);
   row = row+12;
-  print_str("\n   Flag ru\n");
+  printf("\n   Flag ru\n");
 }
 
 
@@ -96,14 +94,14 @@ void command_clear() {
 
 // Команда пинг
 void command_ping() {
-  print_str("pong!");
+  printf("pong!");
 }
 
 // Команда помощи
 void command_help(int type) {
-  print_str("\nThis is the Pon Operating System (PonOS) created by kvassock.\n\n");
+  printf("\nThis is the Pon Operating System (PonOS) created by kvassock.\n\n");
   print_set_color(RED, BLACK);
-  print_str("Commands:\n");
+  printf("Commands:\n");
 
   if (type == 0) {
     print_text_help_main();
@@ -123,25 +121,25 @@ void command_help(int type) {
 }
 
 void command_shutdown() {
-  print_str("Skoro (Soon)");
+  printf("Skoro (Soon)");
 }
 
 void command_touch(char* command) {
-  print_str("Enter file name: ");
+  printf("Enter file name: ");
   char* file_name = input();
   touch(file_name);
   free(file_name);
 }
 
 void command_cat(char* command) {
-  print_str("Enter file name: ");
+  printf("Enter file name: ");
   char* file_name = input();
   cat(file_name);
   free(file_name);
 }
 
 void command_nano(char* command) {
-  print_str("Enter file name: ");
+  printf("Enter file name: ");
   char* file_name = input();
   nano(file_name);
   free(file_name);
@@ -149,7 +147,7 @@ void command_nano(char* command) {
 
 void command_ls() {
   char* files = get_files();
-  print_str(files);
+  printf("%s", files);
 }
 
 void command_handler(char* command) {
@@ -207,10 +205,7 @@ void command_handler(char* command) {
   }
     
   else {
-    print_str("command '");
-    print_str(command);
-    print_str("' ");
-    print_str("not found!");
+    printf("command '%s' not found", command);
   }
 }
 
@@ -222,7 +217,7 @@ void shell() {
   print_set_color(WHITE, BLACK);
 
   if (!str_equal(command, NULL_KEY)) {
-    print_str("\n");
+    printf("\n");
     command_handler(command);
   }
 }
