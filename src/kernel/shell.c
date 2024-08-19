@@ -77,13 +77,13 @@ void print_text_help_other() {
 // Команда для вывода российского флага 
 void command_ru() {
   print_clear();
-  fill(BLACK);
+  print_fill(BLACK);
   int y = NUM_ROWS;
   int x = NUM_COLS;
 
-  vga_rect(3, 3, x-3, 6 , WHITE);
-  vga_rect(3, 6, x-3, 9, BLUE);
-  vga_rect(3, 9, x-3, 12, RED);
+  print_rect(3, 3, x-3, 6 , WHITE);
+  print_rect(3, 6, x-3, 9, BLUE);
+  print_rect(3, 9, x-3, 12, RED);
   row = row+12;
   print_str("\n   Flag ru\n");
 }

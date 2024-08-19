@@ -11,31 +11,31 @@ int nano(char* file_name) {
 
   // Header
   void print_header() {
-    vga_rect(0, 0, NUM_COLS, 1, WHITE);
+    print_rect(0, 0, NUM_COLS, 1, WHITE);
     print_set_color(BLACK, WHITE);
 
     char* header_text_app = "PON NANO";
 
     for (int i = 0; i < strlen(header_text_app); i++) {
-      print_symbol_with_char(i+1, 0, header_text_app[i]);
+      print_symbol(i+1, 0, header_text_app[i]);
     }
 
     char* header_text_file = file_name;
 
     for (int i = 0; i < strlen(header_text_file); i++) {
-      print_symbol_with_char((NUM_COLS-strlen(header_text_file))/2+i, 0, header_text_file[i]);
+      print_symbol((NUM_COLS-strlen(header_text_file))/2+i, 0, header_text_file[i]);
     }
   }
 
   // Footer
   void print_footer() {
-    vga_rect(0, NUM_ROWS-1, NUM_COLS, NUM_ROWS, WHITE);
+    print_rect(0, NUM_ROWS-1, NUM_COLS, NUM_ROWS, WHITE);
     print_set_color(BLACK, WHITE);
 
     char* footer_text = "Ctrl + Q: Exit  |  Ctrl + O: Save";
 
     for (int i = 0; i < strlen(footer_text); i++) {
-      print_symbol_with_char((NUM_COLS-strlen(footer_text))/2+i, NUM_ROWS-1, footer_text[i]);
+      print_symbol((NUM_COLS-strlen(footer_text))/2+i, NUM_ROWS-1, footer_text[i]);
     }
 
   }
@@ -49,7 +49,7 @@ int nano(char* file_name) {
   print_clear();
   print_header();
   print_footer();
-  vga_rect(0, 1, NUM_COLS, NUM_ROWS-1, BACKGROUND_MAIN);
+  print_rect(0, 1, NUM_COLS, NUM_ROWS-1, BACKGROUND_MAIN);
 
   char* file_old_content = get_file(file_name);
   char* buffer_nano_text = file_old_content;

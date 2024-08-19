@@ -10,6 +10,8 @@
 void kernel_main() {
   // idt_init(); 
   init_fs();
+  vga_test();
+  // return;
 
   print_clear();
   print_set_color(YELLOW, BLACK);
