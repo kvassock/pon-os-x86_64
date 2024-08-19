@@ -7,6 +7,7 @@
 #include <fs.h>
 #include <nano.h>
 #include <memory.h>
+#include <acpi.h>
 
 // Напечатать оболочку (ну типа сам поймешь че это)
 void print_shell();

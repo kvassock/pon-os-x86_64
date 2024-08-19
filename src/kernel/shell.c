@@ -121,7 +121,7 @@ void command_help(int type) {
 }
 
 void command_shutdown() {
-  printf("Skoro (Soon)");
+  shutdown();
 }
 
 void command_touch(char* command) {
