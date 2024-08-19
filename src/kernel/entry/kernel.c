@@ -10,7 +10,7 @@
 void kernel_main() {
   // idt_init(); 
   init_fs();
-  vga_test();
+  // vga_test();
   // return;
 
   print_clear();
